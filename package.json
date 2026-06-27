@@ -1,0 +1,51 @@
+{
+	"name": "n8n-nodes-datatable-variables",
+	"version": "1.0.0",
+	"description": "n8n community node for local datatable variables storage",
+	"license": "MIT",
+	"homepage": "",
+	"keywords": [
+		"n8n-community-node-package"
+	],
+	"author": {
+		"name": "Dan Even Segler",
+		"email": "danevensegler08@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DanEvenSegler/n8n-nodes-datatable-variables.git"
+	},
+	"main": "dist/nodes/DatatableVariables/DatatableVariables.node.js",
+	"scripts": {
+		"build": "n8n-node build && node -e \"const fs = require('fs'); fs.mkdirSync('dist/icons', { recursive: true }); fs.readdirSync('icons').forEach(f => fs.copyFileSync('icons/'+f, 'dist/icons/'+f))\"",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": false,
+		"credentials": [],
+		"nodes": [
+			"dist/nodes/DatatableVariables/DatatableVariables.node.js",
+			"dist/nodes/DatatableVariables/DatatableVariablesTrigger.node.js",
+			"dist/nodes/DatatableVariables/DatatableVariablesImportExport.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "latest",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
